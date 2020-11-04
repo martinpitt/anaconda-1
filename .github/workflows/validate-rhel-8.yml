@@ -6,6 +6,12 @@ on:
     types: [created]
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump event info
+        run: echo "${{ toJSON(github.event) }}"
+
   pr-info:
     # restrict running of tests to trusted organization members
     # see https://developer.github.com/v4/enum/commentauthorassociation/
